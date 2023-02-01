@@ -1,36 +1,83 @@
-<script>
+<script lang="ts">
 	import Timecard from './Timecard.svelte';
-	import WorkIcon from '$lib/imgs/icon-work.svg';
-	import PlayIcon from '$lib/imgs/icon-play.svg';
-	import StudyIcon from '$lib/imgs/icon-study.svg';
-	import ExerciseIcon from '$lib/imgs/icon-exercise.svg';
 
 	import Data_file from '$lib/data.json';
 	const work_data = Data_file[0];
 	const play_data = Data_file[1];
 	const study_data = Data_file[2];
 	const exercise_data = Data_file[3];
+	const social_data = Data_file[4];
+	const selfcare_data = Data_file[5];
+
+	let selected_timeframe: 'daily' | 'weekly' | 'monthly' = 'daily';
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<Timecard bgclass="work" cardData={work_data}>
-	<img src={WorkIcon} alt="" slot="icon" />
-</Timecard>
+<div class="dashboard">
+	<div class="dashboard-profile" />
+	<div class="dashboard-selector">
+		<input
+			type="radio"
+			name="time"
+			id="time-daily"
+			bind:group={selected_timeframe}
+			value={'daily'}
+		/>
+		<label for="time-daily"> Daily </label>
 
-<Timecard bgclass="play" cardData={play_data}>
-	<img src={PlayIcon} alt="" slot="icon" />
-</Timecard>
+		<input
+			type="radio"
+			name="time"
+			id="time-weekly"
+			bind:group={selected_timeframe}
+			value={'weekly'}
+		/>
+		<label for="time-weekly"> Weekly </label>
 
-<Timecard bgclass="study" cardData={study_data}>
-	<img src={StudyIcon} alt="" slot="icon" />
-</Timecard>
+		<input
+			type="radio"
+			name="time"
+			id="time-monthly"
+			bind:group={selected_timeframe}
+			value={'monthly'}
+		/>
+		<label for="time-monthly"> Monthly </label>
+	</div>
+</div>
+<div class="timecard-wrapper">
+	<Timecard category="work" cardData={work_data} {selected_timeframe} />
 
-<Timecard bgclass="exercise" cardData={exercise_data}>
-	<img src={ExerciseIcon} alt="" slot="icon" />
-</Timecard>
+	<Timecard category="play" cardData={play_data} {selected_timeframe} />
+
+	<Timecard category="study" cardData={study_data} {selected_timeframe} />
+
+	<Timecard category="exercise" cardData={exercise_data} {selected_timeframe} />
+
+	<Timecard category="social" cardData={social_data} {selected_timeframe} />
+
+	<Timecard category="selfcare" cardData={selfcare_data} {selected_timeframe} />
+</div>
 
 <style lang="scss">
-	h1 {
-		color: $blue-400;
+	.timecard-wrapper {
+		width: 825px;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		gap: 1rem;
+	}
+	.dashboard-selector {
+		display: flex;
+		flex-direction: column;
+		input[type='radio'] {
+			opacity: 0;
+			position: fixed;
+			width: 0;
+		}
+		label {
+			color: $blue-600;
+		}
+		[type='radio']:checked + label {
+			color: $blue-200;
+		}
 	}
 </style>
