@@ -58,8 +58,8 @@
 
 	function getText(selected_timeframe: timeframe) {
 		if (selected_timeframe == 'daily') return 'Yesterday';
-		else if (selected_timeframe == 'weekly') return 'Last week';
-		else return 'Last month';
+		else if (selected_timeframe == 'weekly') return 'Last Week';
+		else return 'Last Month';
 	}
 	$: previous_text = getText(selected_timeframe);
 </script>
@@ -104,7 +104,23 @@
 			margin-top: -1rem;
 			border-radius: 1rem;
 			padding: 2rem;
+			font-size: 18px;
+			h2 {
+				font-weight: 400;
+			}
+			&:hover {
+				background-color: $blue-500;
+				cursor: pointer;
+			}
 		}
+	}
+	.time-current {
+		font-size: 3rem;
+		font-weight: 300;
+	}
+	.time-previous {
+		font-weight: 300;
+		color: $blue-200;
 	}
 	.work {
 		--bg-color: #{$work-color};
@@ -123,5 +139,8 @@
 	}
 	.selfcare {
 		--bg-color: #{$selfcare-color};
+		.icon {
+			transform: translateY(-7px);
+		}
 	}
 </style>

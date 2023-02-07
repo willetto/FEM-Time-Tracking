@@ -8,7 +8,7 @@
 	Challenge by
 	<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"> Frontend Mentor</a>. Coded
 	by
-	<a href="https://www.yourname.com" target="_blank">Your Name</a>.
+	<a href="https://www.treywilletto.com" target="_blank">Trey Willetto</a>.
 </footer>
 
 <style lang="scss" global>
@@ -18,7 +18,9 @@
 	:root {
 		font-family: 'rubik', Helvetica, sans-serif;
 	}
-
+	body {
+		background-color: $blue-800;
+	}
 	main {
 		display: grid;
 		place-items: center;
@@ -28,8 +30,9 @@
 		font-size: 11px;
 		text-align: center;
 		margin-top: 3rem;
-	}
-	.attribution a {
-		color: $blue-300;
+		color: $blue-200;
+		a {
+			color: $blue-300;
+		}
 	}
 </style>
