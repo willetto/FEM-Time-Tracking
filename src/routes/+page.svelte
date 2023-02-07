@@ -68,52 +68,79 @@
 <style lang="scss">
 	.wrapper {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		gap: 1rem;
+		@media (min-width: 900px) {
+			flex-direction: row;
+		}
 	}
 	.dashboard {
-		width: 225px;
+		width: 327px;
 		overflow: hidden;
-		position: relative;
 		z-index: 1;
 		display: grid;
-		grid-template-rows: 1fr auto;
+		@media (min-width: 900px) {
+			grid-template-rows: 1fr auto;
+			width: 225px;
+		}
 		&-profile {
 			padding: 2rem;
 			border-radius: 1rem;
 			background-color: $blue-400;
 			display: flex;
-			flex-direction: column;
 			justify-content: space-evenly;
+			align-items: center;
+			@media (min-width: 900px) {
+				flex-direction: column;
+				align-items: flex-start;
+				justify-items: space-between;
+			}
 			img {
 				border: 2px solid white;
 				border-radius: 50%;
-				max-width: 80px;
+				max-width: 70px;
+				@media (min-width: 900px) {
+					max-width: 80px;
+				}
 			}
 			p {
-				color: $blue-300;
+				color: $blue-200;
 				font-weight: 400;
-				font-size: 18px;
+				font-size: 1rem;
+				@media (min-width: 900px) {
+					font-size: 18px;
+				}
 			}
 			.profile-name {
 				color: white;
-				font-size: 2rem;
+				font-size: 24px;
 				font-weight: 300;
+				@media (min-width: 900px) {
+					font-size: 2rem;
+				}
 			}
 		}
+
 		&-selector {
+			background-color: $blue-600;
 			position: relative;
 			z-index: -1;
 			margin-top: -0.75rem;
-			padding-top: 3rem;
+			height: 86px;
 			padding: 2rem;
+			padding-top: 2.2rem;
 			border-bottom-left-radius: 1rem;
 			border-bottom-right-radius: 1rem;
 			display: flex;
-			flex-direction: column;
-			gap: 1rem;
+			flex-direction: row;
 			font-weight: 300;
-			background-color: $blue-600;
+			justify-content: space-between;
+			@media (min-width: 900px) {
+				flex-direction: column;
+				gap: 1rem;
+				padding-top: 3rem;
+				height: unset;
+			}
 			input[type='radio'] {
 				opacity: 0;
 				position: fixed;
@@ -132,10 +159,13 @@
 		}
 	}
 	.timecard-wrapper {
-		width: 825px;
 		display: flex;
 		flex-wrap: wrap;
-		flex-direction: row;
+		flex-direction: column;
 		gap: 1rem;
+		@media (min-width: 900px) {
+			flex-direction: row;
+			width: 825px;
+		}
 	}
 </style>

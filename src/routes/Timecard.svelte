@@ -71,19 +71,24 @@
 		</span>
 	</div>
 	<div class="card-info">
-		<h2>{cardData.title}</h2>
-		<img src={Dots} alt="" />
-		<p class="time-current">{current_time}hrs</p>
-		<p class="time-previous">{previous_text} - {previous_time}hrs</p>
+		<div class="card-info-heading">
+			<h2>{cardData.title}</h2>
+			<img src={Dots} alt="" />
+		</div>
+		<div class="card-info-stats">
+			<p class="time-current">{current_time}hrs</p>
+			<p class="time-previous">{previous_text} - {previous_time}hrs</p>
+		</div>
 	</div>
 </div>
 
 <style lang="scss">
 	.card {
-		width: 255px;
 		border-radius: 1rem;
 		overflow: hidden;
-
+		@media (min-width: 900px) {
+			width: 255px;
+		}
 		&-color {
 			height: 60px;
 			background-color: var(--bg-color);
@@ -105,8 +110,28 @@
 			border-radius: 1rem;
 			padding: 2rem;
 			font-size: 18px;
+			&-heading {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+			}
+			&-stats {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				@media (min-width: 900px) {
+					flex-wrap: wrap;
+				}
+			}
+
 			h2 {
+				font-size: 1rem;
 				font-weight: 400;
+				@media (min-width: 900px) {
+					font-size: 1.5rem;
+				}
 			}
 			&:hover {
 				background-color: $blue-500;
@@ -115,12 +140,20 @@
 		}
 	}
 	.time-current {
-		font-size: 3rem;
+		font-size: 24px;
 		font-weight: 300;
+		@media (min-width: 900px) {
+			font-size: 3rem;
+			font-weight: 300;
+		}
 	}
 	.time-previous {
 		font-weight: 300;
+		font-size: 1rem;
 		color: $blue-200;
+		@media (min-width: 900px) {
+			font-size: 18px;
+		}
 	}
 	.work {
 		--bg-color: #{$work-color};
