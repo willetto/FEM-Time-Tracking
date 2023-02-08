@@ -16,10 +16,10 @@
 	<div class="dashboard">
 		<div class="dashboard-profile">
 			<img src={ProfilePic} alt="" />
-			<span class="text">
+			<div class="text">
 				<p>Report for</p>
 				<p class="profile-name">Jeremy Robson</p>
-			</span>
+			</div>
 		</div>
 		<div class="dashboard-selector">
 			<input
